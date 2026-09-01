@@ -1,7 +1,14 @@
-import "~/styles/globals.css";
-
+import React from "react";
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
+import { ThemeProvider } from "next-themes"
+import {Toaster} from "sonner";
+
+import {TooltipProvider} from "~/components/ui/tooltip";
+import {Providers} from "~/components/providers";
+import {cn} from "~/lib/utils"
+
+import "~/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -18,8 +25,15 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={cn("font-sans", geist.variable)} suppressHydrationWarning>
+      <body className="antialiased min-h-svh flex flex-col">
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <Providers>
+          <TooltipProvider>{children}</TooltipProvider>
+        </Providers>
+        <Toaster />
+      </ThemeProvider>
+      </body>
     </html>
   );
 }
