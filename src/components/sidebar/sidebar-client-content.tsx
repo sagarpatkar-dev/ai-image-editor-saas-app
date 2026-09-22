@@ -26,7 +26,7 @@ export default function SidebarClientContent() {
           <SidebarGroupLabel className="text-primary mt-6 mb-8 flex flex-col items-start justify-start px-2">
             <Link href="/" className="mb-1 flex items-center gap-2">
               <Sparkles className="text-primary h-6 w-6" />
-              <p className="from-primary to-primary/70 bg-linear-to-r bg-clip-text text-2xl font-bold tracking-tight text-transparent">
+              <p className="from-primary to-primary/70 bg-linear-to-r bg-clip-text text-2xl font-bold tracking-tight">
                 AI Image
               </p>
             </Link>
